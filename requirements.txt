@@ -3,6 +3,3 @@ numpy
 librosa
 matplotlib
 scipy
-pydub
-ffmpeg-python
-ffprobe-python
