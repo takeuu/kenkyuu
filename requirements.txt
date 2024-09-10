@@ -1,10 +1,6 @@
- streamlit
+streamlit
 numpy
 librosa
-librosa.display
-matplotlib.pyplot
-scipy.io.wavfile
-io
+matplotlib
+scipy
 pydub
-tempfile
-scipy.signal
