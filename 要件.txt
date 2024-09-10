@@ -1,0 +1,10 @@
+ streamlit
+numpy
+librosa
+librosa.display
+matplotlib.pyplot
+scipy.io.wavfile
+io
+pydub
+tempfile
+scipy.signal
