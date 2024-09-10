@@ -8,6 +8,12 @@ from io import BytesIO
 from pydub import AudioSegment
 import tempfile
 import scipy.signal as signal
+from pydub import AudioSegment
+from pydub.utils import which
+
+# Streamlit Cloudの環境でffmpegのバイナリパスを指定
+AudioSegment.converter = "/path/to/your/ffmpeg"
+AudioSegment.ffprobe = "/path/to/your/ffprobe"
 
 # タイトル
 st.title('Audio Feature Extractor App (Supports m4a)')
