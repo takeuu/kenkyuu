@@ -5,35 +5,17 @@ import librosa.display
 import matplotlib.pyplot as plt
 from scipy.io.wavfile import write
 from io import BytesIO
-from pydub import AudioSegment
-import tempfile
 import scipy.signal as signal
-from pydub import AudioSegment
-from pydub.utils import which
-
-# Streamlit Cloudの環境でffmpegのバイナリパスを指定
-AudioSegment.converter = "/path/to/your/ffmpeg"
-AudioSegment.ffprobe = "/path/to/your/ffprobe"
 
 # タイトル
-st.title('Audio Feature Extractor App (Supports m4a)')
+st.title('Audio Feature Extractor App (MP3/WAV)')
 
 # 音声ファイルのアップロード
-uploaded_file = st.file_uploader("Choose an audio file", type=["wav", "mp3", "m4a"])
+uploaded_file = st.file_uploader("Choose an audio file", type=["wav", "mp3"])
 
 if uploaded_file is not None:
-    # m4aファイルを一時的にwavに変換して保存するための処理
-    with tempfile.NamedTemporaryFile(delete=False, suffix='.wav') as temp_file:
-        if uploaded_file.name.endswith('.m4a'):
-            audio = AudioSegment.from_file(uploaded_file, format="m4a")
-            audio.export(temp_file.name, format="wav")
-            temp_file_path = temp_file.name
-        else:
-            temp_file.write(uploaded_file.read())
-            temp_file_path = temp_file.name
-
     # 音声ファイルをlibrosaで読み込む
-    y, sr = librosa.load(temp_file_path)
+    y, sr = librosa.load(uploaded_file, sr=None)
     st.write(f"Sample Rate: {sr}")
 
     # 特徴量の選択メニュー
