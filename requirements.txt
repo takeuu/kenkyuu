@@ -5,4 +5,4 @@ matplotlib
 scipy
 pydub
 ffmpeg-python
-ffprobe
+ffprobe-python
